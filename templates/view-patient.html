@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+<!-- ========== -->
+<!-- Block body -->
+<!-- ========== -->
+
+{% block body %}
+
+<!-- Header -->
+
+{% include 'partials/header.html' %}
+
+<!-- Main -->
+<main class="container">
+  <div class="title df">
+    <h1>Fiche patient</h1>
+    <a href="/edit-patient/{{ patient.id }}" class="button">
+      <i class="bi bi-pencil"></i> Modifier le patient
+    </a>
+  </div>
+  <div class="infos">
+    <p><b>IPP : </b>{{ patient.ipp }}</p>
+    <p><b>Nom : </b>{{ patient.surname }}</p>
+    <p><b>Prénom : </b>{{ patient.first_name }}</p>
+    <p><b>Date de naissance : </b>{{ patient.birthday }}</p>
+    <p><b>Personnage préféré : </b>{{ patient.personnage }}</p>
+    <p>
+      <b>Fin hospitalisation : </b>{% if patient.end_of_hospitalisation == True
+      %} Oui {% else %} Non {% endif %}
+    </p>
+    {% if patient.end_of_hospitalisation == True %}
+    <p>
+      <b>Jour(s) de suivi post-hospitalisation : </b>{{
+      patient.nb_de_jours_de_suivi_post_hospit }}
+    </p>
+    <p>
+      <b>Nb de suivi / jour : </b>{{ patient.nb_de_suivi_post_hospit_par_jour }}
+    </p>
+    {% endif %}
+  </div>
+</main>
+
+<!-- Footer -->
+
+{% include 'partials/footer.html' %}
+
+<!-- Fin du block body -->
+{% endblock %}

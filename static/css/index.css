@@ -1,0 +1,274 @@
+@font-face {
+  font-family: "quicksand";
+  src: url(../fonts/quicksand.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "quicksand", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  color: #333;
+  transition: 0.2s ease;
+  font-size: 1rem;
+  cursor: default;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #a388bf;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 rgba(163, 136, 191, 0.4);
+}
+
+h1 {
+  font-size: 2rem;
+  padding-bottom: 50px;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #a388bf;
+  cursor: pointer;
+}
+
+.df {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.title {
+  width: 100%;
+  padding-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between !important;
+}
+.title h1 {
+  padding-bottom: 0;
+}
+
+.infos {
+  text-align: left;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+header {
+  padding: 10px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+}
+header img {
+  height: 70px;
+  cursor: pointer;
+}
+
+.header-connect {
+  justify-content: space-between;
+}
+.header-connect .icone-identification {
+  background: #a388bf;
+  padding: 10px;
+  border-radius: 50%;
+  border: 2px solid #a388bf;
+}
+.header-connect .icone-identification b {
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+.header-connect .icone-identification:hover {
+  background: #fff;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);
+}
+.header-connect .icone-identification:hover b {
+  color: #a388bf;
+}
+
+main {
+  box-shadow: inset 0 0 10px #000;
+  scroll-behavior: smooth;
+  padding: 50px;
+}
+
+footer {
+  padding: 20px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+footer p,
+footer a {
+  font-size: 0.9rem;
+}
+
+.button {
+  background: #a388bf;
+  border: 2px solid #a388bf;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 8px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.button i {
+  color: #fff;
+  font-size: 1.2rem;
+}
+.button:hover {
+  background: #fff;
+  color: #a388bf;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);
+}
+.button:hover i {
+  color: #a388bf;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 80vh;
+}
+
+#flash-messages {
+  margin: 50px;
+}
+#flash-messages .success,
+#flash-messages .error,
+#flash-messages .info {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#flash-messages .success {
+  border: 2px solid lawngreen;
+}
+#flash-messages .error {
+  border: 2px solid crimson;
+}
+#flash-messages .info {
+  border: 2px solid #a388bf;
+}
+
+.flash {
+  width: calc(100vw - 100px);
+  animation: fadeOut 0.5s ease 3s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+}
+form input,
+form select {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 50px;
+  outline-color: #a388bf;
+  width: 250px;
+}
+form input[type=search] {
+  width: 250px !important;
+}
+form .hidden {
+  visibility: hidden;
+}
+form .df input {
+  width: 90px;
+}
+
+.other-solution {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+table {
+  width: calc(100vw - 100px);
+  border-radius: 10px;
+  border-spacing: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+table thead tr {
+  background: #a388bf;
+}
+table thead tr th {
+  padding: 10px;
+  border: 0.5px solid #000;
+  color: #fff;
+}
+table thead tr th:first-of-type {
+  border-radius: 10px 0 0 0;
+}
+table thead tr th:last-of-type {
+  border-radius: 0 10px 0 0;
+}
+table tbody tr td {
+  padding: 10px;
+  border: 0.5px solid #000;
+}
+table tbody tr:last-of-type td:first-of-type {
+  border-radius: 0 0 0 10px;
+}
+table tbody tr:last-of-type td:last-of-type {
+  border-radius: 0 0 10px 0;
+}
+table .df {
+  justify-content: center;
+}/*# sourceMappingURL=index.css.map */

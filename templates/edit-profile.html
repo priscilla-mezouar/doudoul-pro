@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+
+<!-- ========== -->
+<!-- Block body -->
+<!-- ========== -->
+
+{% block body %}
+
+<!-- Header -->
+
+{% include 'partials/header.html' %}
+
+<!-- Main -->
+<main class="container">
+  <div class="title">
+    <h1>Modifier mon profil</h1>
+    <form
+      action="/delete-profile"
+      method="POST"
+      onsubmit="return confirm('Voulez-vous vraiment supprimer votre compte et toutes vos données ? Cette action est irrévocable !');">
+      <button type="submit" class="button">
+        <i class="bi bi-trash"></i>Supprimer le compte
+      </button>
+    </form>
+  </div>
+
+  <form action="/edit-profile" method="post">
+    <label for="surname">Nom : </label>
+    <input
+      required
+      type="text"
+      value="{{ user.surname }}"
+      name="surname"
+      autofocus
+      autocomplete="off" />
+
+    <label for="first_name">Prénom : </label>
+    <input
+      required
+      type="text"
+      value="{{ user.first_name }}"
+      name="first_name"
+      autocomplete="off" />
+
+    <label for="enterprise">Entreprise : </label>
+
+    <input
+      required
+      type="text"
+      value="{{ user.enterprise }}"
+      name="enterprise"
+      autocomplete="off" />
+
+    <label for="email">Email : </label>
+
+    <input
+      required
+      type="email"
+      value="{{ user.email }}"
+      name="email"
+      autocomplete="off" />
+
+    <button type="submit" class="button">Enregistrer</button>
+  </form>
+</main>
+
+<!-- Footer -->
+
+{% include 'partials/footer.html' %}
+
+<!-- Fin du block body -->
+{% endblock %}

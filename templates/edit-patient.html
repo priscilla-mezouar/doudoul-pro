@@ -1,0 +1,125 @@
+{% extends 'layout.html' %}
+
+<!-- ========== -->
+<!-- Block body -->
+<!-- ========== -->
+
+{% block body %}
+
+<!-- Header -->
+
+{% include 'partials/header.html' %}
+
+<!-- Main -->
+<main class="container">
+  <h1>Modifier la fiche de {{ patient.first_name }} {{ patient.surname }}</h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %}
+  <div id="flash-messages">
+    {% for category, message in messages %}
+    <div class="flash {{ category }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+  {% endif %} {% endwith %}
+
+  <form action="/edit-patient/{{ patient.id }}" method="post">
+    <input
+      required
+      type="text"
+      value="{{ patient.ipp }}"
+      name="ipp"
+      autofocus
+      autocomplete="off" />
+    <input
+      required
+      type="text"
+      value="{{ patient.surname }}"
+      name="surname"
+      autocomplete="off" />
+
+    <input
+      required
+      type="text"
+      value="{{ patient.first_name }}"
+      name="first_name"
+      autocomplete="off" />
+
+    <label>Date de naissance : </label>
+    <div class="df">
+      <input
+        required
+        type="number"
+        value="{{ patient.day_of_birthday }}"
+        name="day_of_birthday"
+        min="1"
+        max="31"
+        autocomplete="off" />
+
+      <input
+        required
+        type="number"
+        value="{{ patient.month_of_birthday }}"
+        name="month_of_birthday"
+        min="1"
+        max="12"
+        autocomplete="off" />
+
+      <input
+        required
+        type="number"
+        value="{{ patient.year_of_birthday }}"
+        name="year_of_birthday"
+        min="2000"
+        max="2026"
+        autocomplete="off" />
+    </div>
+
+    <label for="end_of_hospitalisation">Fin d'hospitalisation : </label>
+
+    <select required name="end_of_hospitalisation">
+      {% if patient.end_of_hospitalisation %}
+      <option value="1" selected>Oui</option>
+      <option value="0">Non</option>
+      {% else %}
+      <option value="0" selected>Non</option>
+      <option value="1">Oui</option>
+      {% endif %}
+    </select>
+
+    {% if patient.end_of_hospitalisation %}
+    <label for="nb_de_jours_de_suivi_post_hospit">
+      Nombre de jour(s) de suivi post-hospitalisation :
+    </label>
+    <input
+      required
+      type="number"
+      value="{{ patient.nb_de_jours_de_suivi_post_hospit }}"
+      name="nb_de_jours_de_suivi_post_hospit"
+      min="0"
+      max="100"
+      autocomplete="off" />
+
+    <label for="nb_de_suivi_post_hospit_par_jour">
+      Nombre de suivi(s) post-hospitalisation / jour :
+    </label>
+    <input
+      required
+      type="number"
+      value="{{ patient.nb_de_suivi_post_hospit_par_jour }}"
+      name="nb_de_suivi_post_hospit_par_jour"
+      min="0"
+      max="100"
+      autocomplete="off" />
+    {% endif %}
+
+    <input type="submit" value="Enregistrer" class="button" />
+  </form>
+</main>
+
+<!-- Footer -->
+
+{% include 'partials/footer.html' %}
+
+<!-- Fin du block body -->
+{% endblock %}

@@ -1,0 +1,12 @@
+// =========
+// Container
+// =========
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  // gap: 50px;
+
+  min-height: 80vh;
+}

@@ -1,0 +1,15 @@
+// ======
+// Footer
+// ======
+footer {
+  padding: 20px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+
+  p,
+  a {
+    font-size: 0.9rem;
+  }
+}

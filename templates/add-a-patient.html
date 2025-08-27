@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+
+<!-- ========== -->
+<!-- Block body -->
+<!-- ========== -->
+
+{% block body %}
+
+<!-- Header -->
+
+{% include 'partials/header.html' %}
+
+<!-- Main -->
+<main class="container">
+  <h1>Ajouter un patient</h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %}
+
+  <div id="flash-messages">
+    {% for category, message in messages %}
+    <div class="flash {{ category }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+  {% endif %} {% endwith %}
+
+  <form action="/add-a-patient" method="post">
+    <input
+      required
+      type="text"
+      placeholder="IPP"
+      name="ipp"
+      autofocus
+      autocomplete="off" />
+    <input
+      required
+      type="text"
+      placeholder="Nom"
+      name="surname"
+      autocomplete="off" />
+
+    <input
+      required
+      type="text"
+      placeholder="Prénom"
+      name="first_name"
+      autocomplete="off" />
+
+    <label>Date de naissance : </label>
+    <div class="df">
+      <input
+        required
+        type="number"
+        placeholder="JJ"
+        name="day_of_birthday"
+        min="1"
+        max="31"
+        autocomplete="off" />
+
+      <input
+        required
+        type="number"
+        placeholder="MM"
+        name="month_of_birthday"
+        min="1"
+        max="12"
+        autocomplete="off" />
+
+      <input
+        required
+        type="number"
+        placeholder="AAAA"
+        name="year_of_birthday"
+        min="2000"
+        max="2026"
+        autocomplete="off" />
+    </div>
+
+    <input type="submit" value="Ajouter un patient" class="button" />
+  </form>
+</main>
+
+<!-- Footer -->
+
+{% include 'partials/footer.html' %}
+
+<!-- Fin du block body -->
+{% endblock %}

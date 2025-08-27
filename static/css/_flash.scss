@@ -1,0 +1,43 @@
+@use "settings";
+
+// ==============
+// Flash messages
+// ==============
+#flash-messages {
+  margin: 50px;
+
+  .success,
+  .error,
+  .info {
+    border-radius: 10px;
+    box-shadow: 0 0 10px settings.$blackShadow;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .success {
+    border: 2px solid lawngreen;
+  }
+
+  .error {
+    border: 2px solid crimson;
+  }
+
+  .info {
+    border: 2px solid settings.$color1;
+  }
+}
+
+.flash {
+  width: calc(100vw - 100px);
+  animation: fadeOut 0.5s ease 3s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

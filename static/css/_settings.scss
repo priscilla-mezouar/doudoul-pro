@@ -1,0 +1,107 @@
+// ======
+// Colors
+// ======
+
+$color1: #a388bf;
+$black: #000;
+$white: #fff;
+$text: #333;
+$blackShadow: rgba(0, 0, 0, 0.25);
+$purpleShadow: rgba(163, 136, 191, 0.4);
+
+// =====
+// Fonts
+// =====
+
+@font-face {
+  font-family: "quicksand";
+  src: url(../fonts/quicksand.ttf);
+}
+
+$font1: "quicksand", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
+
+// =======
+// General
+// =======
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font1;
+  color: $text;
+  transition: 0.2s ease;
+  font-size: 1rem;
+  cursor: default;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $color1;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 $purpleShadow;
+}
+
+h1 {
+  font-size: 2rem;
+  padding-bottom: 50px;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: $color1;
+  cursor: pointer;
+}
+
+.df {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.title {
+  width: 100%;
+  padding-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between !important;
+
+  h1 {
+    padding-bottom: 0;
+  }
+}
+
+.infos {
+  text-align: left;
+  width: 100%;
+  // padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

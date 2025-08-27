@@ -1,0 +1,56 @@
+@use "settings";
+
+// =====
+// Table
+// =====
+table {
+  width: calc(100vw - 100px);
+  border-radius: 10px;
+  border-spacing: 0;
+  box-shadow: 0 0 10px settings.$blackShadow;
+  text-align: center;
+  thead {
+    tr {
+      background: settings.$color1;
+
+      th {
+        padding: 10px;
+        border: 0.5px solid settings.$black;
+        color: settings.$white;
+
+        &:first-of-type {
+          border-radius: 10px 0 0 0;
+        }
+
+        &:last-of-type {
+          border-radius: 0 10px 0 0;
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        padding: 10px;
+        border: 0.5px solid settings.$black;
+      }
+
+      &:last-of-type {
+        td {
+          &:first-of-type {
+            border-radius: 0 0 0 10px;
+          }
+
+          &:last-of-type {
+            border-radius: 0 0 10px 0;
+          }
+        }
+      }
+    }
+  }
+
+  .df {
+    justify-content: center;
+  }
+}

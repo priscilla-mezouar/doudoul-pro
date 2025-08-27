@@ -1,0 +1,99 @@
+{% extends 'layout.html' %}
+
+<!-- ========== -->
+<!-- Block body -->
+<!-- ========== -->
+
+{% block body %}
+
+<!-- Header -->
+
+{% include 'partials/header-connect.html' %}
+
+<!-- Main -->
+<main class="container">
+  <div class="df title">
+    {% if search %}
+    <h1>Résultats pour "{{ search }}" :</h1>
+    {% else %}
+    <h1>Dashboard</h1>
+    {% endif %} {% if search %}
+    <a href="{{ url_for('dashboard') }}" class="button"
+      ><i class="bi bi-x-circle"></i>Annuler la recherche</a
+    >
+    {% else %}
+    <a href="/add-a-patient" class="button"
+      ><i class="bi bi-plus"></i> Ajouter un patient</a
+    >
+    {% endif %}
+  </div>
+
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %}
+  <div id="flash-messages">
+    {% for category, message in messages %}
+    <div class="flash {{ category }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+  {% endif %} {% endwith %}
+
+  <!-- Tableau patient -->
+  {% if patients %}
+  <div class="table">
+    <table>
+      <thead>
+        <tr>
+          <th>IPP</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Date de naissance</th>
+          <th>Personnage préféré</th>
+          <th>Fin hospitalisation</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for patient in patients|reverse %}
+        <tr>
+          <td>{{ patient.ipp }}</td>
+          <td>{{ patient.surname }}</td>
+          <td>{{ patient.first_name }}</td>
+          <td>{{ patient.birthday }}</td>
+          <td>{{ patient.personnage }}</td>
+          <td>
+            {% if patient.end_of_hospitalisation == True %} Oui {% else %} Non
+            {% endif %}
+          </td>
+          <td class="df">
+            <a href="/view-patient/{{ patient.id }}" class="button">
+              <i class="bi bi-eye"></i>
+            </a>
+            <a href="/edit-patient/{{ patient.id }}" class="button">
+              <i class="bi bi-pencil"></i>
+            </a>
+            <!-- <i class="bi bi-qr-code button"></i> -->
+            <form
+              action="/delete-patient/{{ patient.id }}"
+              method="POST"
+              onsubmit="return confirm('Voulez-vous vraiment supprimer ce patient ?');">
+              <button type="submit" class="button">
+                <i class="bi bi-trash"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <p>Aucun patient trouvé</p>
+  {% endif %}
+</main>
+
+<!-- Footer -->
+
+{% include 'partials/footer.html' %}
+
+<!-- Fin du block body -->
+{% endblock %}

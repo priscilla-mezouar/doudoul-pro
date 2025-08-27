@@ -1,0 +1,48 @@
+@use "settings";
+
+// ====
+// Form
+// ====
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+
+  input,
+  select {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid settings.$text;
+    border-radius: 50px;
+    outline-color: settings.$color1;
+    width: 250px;
+  }
+
+  input[type="search"] {
+    width: 250px !important;
+  }
+
+  .hidden {
+    visibility: hidden;
+  }
+
+  .df {
+    input {
+      width: 90px;
+    }
+  }
+}
+
+// ==============
+// Other solution
+// ==============
+.other-solution {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+  margin-top: 50px;
+}

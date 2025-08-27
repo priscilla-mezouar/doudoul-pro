@@ -1,0 +1,26 @@
+<header class="header-connect">
+  <a href="/">
+    <img src="../static/images/logo-doudoul.png" alt="Logo Doudoul" />
+  </a>
+  <div class="df">
+    <form action="{{ url_for('dashboard') }}" method="get">
+      <div class="df">
+        <input
+          type="search"
+          placeholder="Rechercher un patient..."
+          name="q"
+          value="{{ search or '' }}" />
+        <button type="submit" class="button">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="df">
+    <a href="/profile" class="icone-identification">
+      <b>{{user.first_name[0]}}{{user.surname[0]}} </b>
+    </a>
+
+    <a href="/logout" class="button">Déconnexion</a>
+  </div>
+</header>

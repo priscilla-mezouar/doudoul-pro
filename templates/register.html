@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+<!-- ========== -->
+<!-- Block body -->
+<!-- ========== -->
+
+{% block body %}
+
+<!-- Header -->
+
+{% include 'partials/header.html' %}
+
+<!-- Main -->
+<main class="container">
+  <h1>Créer un compte</h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %}
+  <div id="flash-messages">
+    {% for category, message in messages %}
+    <div class="flash {{ category }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+  {% endif %} {% endwith %}
+
+  <form action="/register" method="post">
+    <input
+      required
+      type="text"
+      placeholder="Nom"
+      name="surname"
+      autofocus
+      autocomplete="off" />
+    <input
+      required
+      type="text"
+      placeholder="Prénom"
+      name="first_name"
+      autocomplete="off" />
+    <input
+      required
+      type="text"
+      placeholder="Entreprise"
+      name="enterprise"
+      autocomplete="off" />
+    <input
+      required
+      type="email"
+      placeholder="Email"
+      name="email"
+      autocomplete="off" />
+    <input
+      required
+      type="password"
+      placeholder="Mot de passe"
+      name="password"
+      autocomplete="off" />
+    <input
+      required
+      type="password"
+      placeholder="Confirmation"
+      name="confirmation"
+      autocomplete="off" />
+    <input type="submit" value="Créer un compte" class="button" />
+  </form>
+
+  <div class="other-solution">
+    <p>Vous avez déjà un compte ? <a href="/">Connexion</a></p>
+  </div>
+</main>
+
+<!-- Footer -->
+
+{% include 'partials/footer.html' %}
+
+<!-- Fin du block body -->
+{% endblock %}
